@@ -38,13 +38,16 @@ case $key in
     shift
     shift
     ;;
-    ^\/?((\.|\.\.|([a-zA-Z0-9_]+(\.[a-z]+)?))\/)*([a-zA-Z0-9_]+(\.[a-z]+)?)$) 
-    files+=("$@") # save it in an array for later
-    break
-    ;;
+    
     *)
-    echo "Invalid argument $1. Try -h or –help for more help."
-    exit 1;
+    if [[ $1 =~ ^\/?((\.|\.\.|([a-zA-Z0-9_]+(\.[a-z]+)?))\/)*([a-zA-Z0-9_]+(\.[a-z]+)?)$ ]]
+    then
+        files+=("$@") # save it in an array for later
+        break
+    else
+        echo "Invalid argument $1. Try -h or –help for more help."
+        exit 1
+    fi
     ;;
 esac
 done
