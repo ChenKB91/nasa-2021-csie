@@ -1,6 +1,4 @@
-# To config git to ignore these in all repos:
-# git config --global core.excludesfile ~/.gitignore_global
-
+test_data/*
 # Compiled source #
 ###################
 *.com
