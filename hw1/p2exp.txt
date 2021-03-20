@@ -1,0 +1,14 @@
+test7 83 test16 54 306 93
+test5 63 test7 30 391 91
+test 86 test9 18 291 80
+test12 87 test3 76 123 75
+test15 78 test6 20 217 66
+test8 26 test7 23 324 65
+test1 41 test6 35 245 63
+test3 81 test0 20 172 61
+test5 64 test8 61 64 53
+test19 75 test8 10 122 48
+test3 49 test6 18 162 47
+test4 74 test15 1 120 44
+test5 43 test12 35 51 34
+test14 40 test11 21 84 33

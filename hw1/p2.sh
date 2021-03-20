@@ -37,7 +37,7 @@ else
     dn=`dirname $(realpath $target)`
 fi
    
-echo "$dn"
+#echo "$dn"
 all_same_dir=1
 
 for f in "${files[@]}"
