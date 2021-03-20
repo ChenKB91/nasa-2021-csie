@@ -8,37 +8,37 @@ Author: B09902011 陳可邦
 
 1. We can simply filter by http and get this, since http don't do encryption:
 
-   <img src="/Volumes/Transcend/NTU/nasa-2021-csie/hw1/httppw.png" style="zoom: 67%;" />
+   <img src="pics/httppw.png" style="zoom: 67%;" />
 
 2. This version uses https, which encrypts requests & responses, so we can't get our password from Wireshark.
 
-   <img src="/Volumes/Transcend/NTU/nasa-2021-csie/hw1/https.png" alt="https" style="zoom:67%;" />
+   <img src="pics/https.png" alt="https" style="zoom:67%;" />
 
 #### 好玩遊戲也有暗潮洶湧的一面
 
 1. We can use the "Conversations > Follow Stream" to inspect these conversations:
 
-   <img src="/Volumes/Transcend/NTU/nasa-2021-csie/hw1/stream.png" alt="stream" style="zoom:67%;" />
+   <img src="pics/stream.png" alt="stream" style="zoom:67%;" />
 
    We can also view only data sent by our side:
 
-   <img src="/Volumes/Transcend/NTU/nasa-2021-csie/hw1/client.png" style="zoom:67%;" />
+   <img src="pics/client.png" style="zoom:67%;" />
 
    So basically, the game server sent us the time, the ball and the pad's location, and the client send directions when we press move.
 
 2. If we pay attention to the conversations page, we can notice at some point there's another conversation happening on port 9394:
 
-   ![conversations](/Volumes/Transcend/NTU/nasa-2021-csie/hw1/conversations.png)
+   ![conversations](pics/conversations.png)
 
    And when we look into it we'll discover this:
 
-   <img src="/Volumes/Transcend/NTU/nasa-2021-csie/hw1/secret.png" style="zoom:67%;" />
+   <img src="pics/secret.png" style="zoom:67%;" />
 
    So we know the game steals our .bash_history.
 
 3. We repeat the above steps with the pcap:
 
-   <img src="/Volumes/Transcend/NTU/nasa-2021-csie/hw1/secret2.png" alt="secret2" style="zoom:67%;" />
+   <img src="pics/secret2.png" alt="secret2" style="zoom:67%;" />
 
    `PASSWORD=WoBuHueA_WoJiouJenDeBuHueA`
 
@@ -80,17 +80,28 @@ Author: B09902011 陳可邦
 
    Got the flag: `HW1{d0_y0u_knovv_wH0_KaienLin_1s?}`
 
-   <img src="/Volumes/Transcend/NTU/nasa-2021-csie/hw1/winbypy.png" alt="winbypy" style="zoom:80%;" />
+   <img src="pics/winbypy.png" alt="winbypy" style="zoom:80%;" />
 
 5. I'm too lazy to modify the program to play with 2 balls... Using `netstat -tulpn` we can find the server running on port 9393, then copy it. We already know the flag format, so...
 
-   ![](/Volumes/Transcend/NTU/nasa-2021-csie/hw1/stringsgrep.png)
+   ![](pics/stringsgrep.png)
 
    I'm sorry QAQ Flag: `HW1{Dou8l3_b@ll_d0uB1e_Fun!}`
 
 #### 這麼多的網路協定要是能全部都認識的話該有多好
 
-1. 
-2.  
-3.  
-4.  
+1. ![ICMP](pics/ICMP.png)
+
+   ICMP, or the Internet Control Message Protocol is used to send error messages and other informations, for figuring out networking issues. It is built on the Network Layer.
+
+2.  ![ICMP](pics/DNS.png)
+
+   DNS protocol is used to communicate with DNS servers, and figure out a domain's IP address. It is built on the Application Layer.
+
+3. ![ICMP](pics/ARP.png) 
+
+   The ARP protocol, or the Address Resolution Protocol, is used to in a local network to communicate MAC addresses. It is built on the Data Link Layer.
+
+4.  ![ICMP](pics/DHCP.png)
+
+   DHCP protocol, or Dynaic Host Configuration Protocol, is used to communicate with DHCP servers when connecting to it. It handles the process of getting an IP address inside a network.
