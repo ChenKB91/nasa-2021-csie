@@ -42,15 +42,15 @@ Author: B09902011 陳可邦
 
 * 204 PC - Workstation
 
-<img src="/Volumes/Transcend/NTU/nasa-2021-csie/hw2/pics/204-workstation.png" style="zoom:75%;" />
+<img src="pics/204-workstation.png" style="zoom:75%;" />
 
 * 204 PC - Wifi device
 
-<img src="/Volumes/Transcend/NTU/nasa-2021-csie/hw2/pics/204-wifi.png" style="zoom:75%;" />
+<img src="pics/204-wifi.png" style="zoom:75%;" />
 
 * Wifi device - Wifi device 
 
-![](/Volumes/Transcend/NTU/nasa-2021-csie/hw2/pics/wifi-wifi.png)
+![](pics/wifi-wifi.png)
 
 204 - Workstation: It's a wired connection, so naturally it's super fast.
 
@@ -66,7 +66,7 @@ On `oasis1.csie.ntu.edu.tw`, we can use `netstat -tupln` to find the server is r
 
 The `fe80` makes it so we must connect from within the network, and specify the network interface.
 
-![](/Volumes/Transcend/NTU/nasa-2021-csie/hw2/pics/ipv6.png)
+![](pics/ipv6.png)
 
 Here you go: ```151bca1247a44e0012a53ce492275e10```
 
@@ -177,12 +177,28 @@ btrfs balance start -dconvert=raid1 -mconvert=raid1 /home/nasa/courses
 | Snapshots        | No       | Yes      |
 | RAID             | No       | Yes      |
 
-2. RAID
+> https://linuxhint.com/btrfs-vs-ext4-filesystems-comparison/
+
+1. RAID
+
    * RAID 0: Combining multiple drives' space to make a BIIIG drive.
    * RAID 1: Mirror everything on all drives, to get a drive with the size of the smallest among its components.
    * RAID 5: Uses one drive as checksum, and distribute data evenly to all remaining drives. When any one of the drives is broken, its data can be recovered from the rest. Require at least 3 drives.
    * RAID 10: Divide the drives to 2 groups, use RAID 1 to make each group into a drive, then make these 2 drives as a RAID 0 drive.
 
-3. FUSE
-   * 
+   > https://en.wikipedia.org/wiki/RAID
+
+2. FUSE
+
+   FUSE, or filesystem in userspace, is a framework allowing non-privileged users to mount and create their own filesystem. This is very helpful, however its somewhat slower, and has to be loaded from somewhere else to boot.
+
+   > https://unix.stackexchange.com/questions/4146/what-are-the-benefits-and-downsides-to-use-fusefs-filesystems
+
+4. ZFS & Hardware RAID
+
+   ZFS is a 128 bit filesystem with integrated software RAID features, with supports for many unix-like OSes. Hardware RAID uses extra hardware to assist various RAID operations, which makes it faster and also won't take up CPU rescourses.
+
+   Personally I would choose ZFS, just because it's more modern and hardware RAID is just too expensive.
+
+   > https://en.wikipedia.org/wiki/ZFS#Summary
 
