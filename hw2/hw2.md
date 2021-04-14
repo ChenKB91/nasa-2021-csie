@@ -34,6 +34,8 @@ Author: B09902011 陳可邦
 
 ### IPerf
 
+> References: iperf manual page
+
 * Testing steps
 
   On one side, use `iperf -s` to listen.
@@ -71,6 +73,10 @@ The `fe80` makes it so we must connect from within the network, and specify the 
 Here you go: ```151bca1247a44e0012a53ce492275e10```
 
 ## SA
+
+> References for this section: https://btrfs.wiki.kernel.org/index.php/Main_Page
+>
+> Discussed with 郭懷元、林弘毅
 
 ### 1
 
