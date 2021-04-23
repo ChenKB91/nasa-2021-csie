@@ -12,7 +12,18 @@ B09902011 陳可邦
 
 ## SA
 
-### Container
+### About Container
+
+When to use container:
+
+1. When you want to have a fixed environment so you can eliminate environment factors when collaborating.
+2. When you want to quickly test your app in different environments, but don't want to set up a lot of VMs and waste time.
+3. When you want to test a new tool, but don't want to pollute your system, you can use images built by the developer.
+4. When you want a server run multiple application at the same time, but don't want them to interfere with one another, to prevent problems.
+
+When to use VM:
+
+
 
 ### Docker Basics
 
