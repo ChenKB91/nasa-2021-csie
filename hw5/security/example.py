@@ -10,7 +10,6 @@ import json
 HOST = f'linux7.csie.ntu.edu.tw'
 PORT = 13087
 
-
 def interactive(s):
     while True:
         try:
@@ -55,7 +54,7 @@ def POW(s):
             sendLine(s, str(i))
             break
 
-with open('data.txt', 'r') as f:
+with open('data.txt', 'r') as f: # run blowupmd5.py first
     print('loading json...')
     meow = json.load(f)
     print('load complete')
@@ -79,14 +78,23 @@ def blowup():
 if __name__ == '__main__':
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         s.connect((HOST, PORT))
-        newPOW(s)
-        print(recvUntil(s, ': ').decode(), end='')
-        # sendLine(s,'2')
-        # print(recvUntil(s, ': ').decode(), end='')
-        # sendLine(
-        #     s, "Dear Sophia, a柴魚a柴魚a柴魚a柴魚a柴魚a柴魚a柴魚a柴魚a柴魚a柴魚a柴魚a柴魚. Best wishes, aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa!.")
+        newPOW(s)  # run blowupmd5.py first
 
-        # for i in range(10):
-        #     newPOW(s)
+        print(recvUntil(s, ': ').decode(), end='')
+        sendLine(s,'2') # modify this yourself
+        # p1
+        # sendline(s,blowup())
+        # p2
+        """
+        print(recvUntil(s, ': ').decode(), end='')
+        sendLine(
+            s, "Dear Sophia, a柴魚a柴魚a柴魚a柴魚a柴魚a柴魚a柴魚a柴魚a柴魚a柴魚a柴魚a柴魚. Best wishes, aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa!.")
+        """
+        
+        # p3 (run blowupmd5.py first)
+        """
+        for i in range(10):
+             newPOW(s)
+        """
         interactive(s)
 
